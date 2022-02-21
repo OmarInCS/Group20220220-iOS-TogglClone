@@ -13,6 +13,8 @@
 		CEA732E927C39B45005D5215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA732E727C39B45005D5215 /* Main.storyboard */; };
 		CEA732EB27C39B47005D5215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA732EA27C39B47005D5215 /* Assets.xcassets */; };
 		CEA732EE27C39B47005D5215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA732EC27C39B47005D5215 /* LaunchScreen.storyboard */; };
+		CEA732F827C39BC7005D5215 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732F627C39BC7005D5215 /* TimeEntry.swift */; };
+		CEA732F927C39BC7005D5215 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732F727C39BC7005D5215 /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CEA732EA27C39B47005D5215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEA732ED27C39B47005D5215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEA732EF27C39B47005D5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA732F627C39BC7005D5215 /* TimeEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
+		CEA732F727C39BC7005D5215 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		CEA732E027C39B45005D5215 /* TogglClone */ = {
 			isa = PBXGroup;
 			children = (
+				CEA732F527C39B9A005D5215 /* model */,
 				CEA732E127C39B45005D5215 /* AppDelegate.swift */,
 				CEA732E327C39B45005D5215 /* SceneDelegate.swift */,
 				CEA732E527C39B45005D5215 /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				CEA732EF27C39B47005D5215 /* Info.plist */,
 			);
 			path = TogglClone;
+			sourceTree = "<group>";
+		};
+		CEA732F527C39B9A005D5215 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CEA732F727C39BC7005D5215 /* Project.swift */,
+				CEA732F627C39BC7005D5215 /* TimeEntry.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +155,8 @@
 				CEA732E627C39B45005D5215 /* ViewController.swift in Sources */,
 				CEA732E227C39B45005D5215 /* AppDelegate.swift in Sources */,
 				CEA732E427C39B45005D5215 /* SceneDelegate.swift in Sources */,
+				CEA732F927C39BC7005D5215 /* Project.swift in Sources */,
+				CEA732F827C39BC7005D5215 /* TimeEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

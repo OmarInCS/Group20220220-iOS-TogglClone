@@ -13,6 +13,14 @@ class TimeEntry : Hashable, Equatable {
     var endTime: Date?
     var project: Project?
     private var timer: Timer?
+    
+    var duration: TimeInterval {
+        return startTime.distance(to: endTime ?? Date())
+    }
+    
+    var entryCost: Double {
+        return (project?.hourRate ?? 0) * duration / 60 / 60
+    }
 
    
     static var dummyEntries = [

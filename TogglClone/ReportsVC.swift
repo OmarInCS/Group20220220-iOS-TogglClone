@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ReportsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

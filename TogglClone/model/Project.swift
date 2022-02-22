@@ -19,4 +19,6 @@ struct Project {
         Project(projectName: "Scratch Clone", hourRate: 150),
     ]
 
+    
+    
 }

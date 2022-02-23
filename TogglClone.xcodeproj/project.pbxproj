@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE29A53227C61404001C3445 /* BottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29A53127C61404001C3445 /* BottomSheetVC.swift */; };
 		CEA732E227C39B45005D5215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732E127C39B45005D5215 /* AppDelegate.swift */; };
 		CEA732E427C39B45005D5215 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732E327C39B45005D5215 /* SceneDelegate.swift */; };
 		CEA732E627C39B45005D5215 /* ReportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732E527C39B45005D5215 /* ReportsVC.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE29A53127C61404001C3445 /* BottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVC.swift; sourceTree = "<group>"; };
 		CEA732DE27C39B45005D5215 /* TogglClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TogglClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA732E127C39B45005D5215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA732E327C39B45005D5215 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				CEA732FA27C3A572005D5215 /* EntriesVC.swift */,
 				CEA732FC27C3A5E0005D5215 /* ProjectsVC.swift */,
 				CEA732FE27C3B460005D5215 /* EntryCell.swift */,
+				CE29A53127C61404001C3445 /* BottomSheetVC.swift */,
 			);
 			path = TogglClone;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				CEA732F927C39BC7005D5215 /* Project.swift in Sources */,
 				CEA732FF27C3B460005D5215 /* EntryCell.swift in Sources */,
 				CEA732F827C39BC7005D5215 /* TimeEntry.swift in Sources */,
+				CE29A53227C61404001C3445 /* BottomSheetVC.swift in Sources */,
 				CEA732FB27C3A572005D5215 /* EntriesVC.swift in Sources */,
 				CEA732FD27C3A5E0005D5215 /* ProjectsVC.swift in Sources */,
 			);

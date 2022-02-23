@@ -35,7 +35,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSg-v6-H8u">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Entries" id="uex-y1-eoN"/>
+                                    <navigationItem title="Entries" id="uex-y1-eoN">
+                                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="gMR-mk-jEA">
+                                            <connections>
+                                                <action selector="showBottomSheet:" destination="7hN-Nd-gMk" id="pwt-Rf-bIw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTG-cl-FAq">
@@ -165,6 +171,97 @@
             </objects>
             <point key="canvasLocation" x="-384.05797101449281" y="-317.41071428571428"/>
         </scene>
+        <!--Bottom SheetVC-->
+        <scene sceneID="ppe-Rt-acE">
+            <objects>
+                <viewController storyboardIdentifier="bottomSheet" id="bpS-6k-cma" customClass="BottomSheetVC" customModule="TogglClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QYL-i8-FSj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljo-aZ-s3S">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="Th8-Gp-1kC">
+                                        <barButtonItem key="leftBarButtonItem" image="trash" catalog="system" id="z90-Fl-Af1"/>
+                                        <barButtonItem key="rightBarButtonItem" title="create" id="Nta-x8-tnb"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbh-XO-3b1">
+                                <rect key="frame" x="8" y="156" width="398" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="project name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wr0-xc-vLk">
+                                <rect key="frame" x="8" y="198" width="398" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdm-jJ-CyK">
+                                <rect key="frame" x="8" y="248" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="emM-cJ-S4W">
+                                <rect key="frame" x="107" y="277" width="200" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MKo-xq-stu"/>
+                                </constraints>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJA-PZ-Vyd">
+                                <rect key="frame" x="8" y="324" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="l30-Ov-y2q">
+                                <rect key="frame" x="107" y="353" width="200" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="UHe-mU-lQJ"/>
+                                </constraints>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-JP-KSg">
+                                <rect key="frame" x="8" y="96" width="398" height="52"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ecg-Ct-gjs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cMS-JP-KSg" firstAttribute="top" secondItem="Ljo-aZ-s3S" secondAttribute="bottom" constant="8" id="2Hb-Lu-D8n"/>
+                            <constraint firstItem="Ecg-Ct-gjs" firstAttribute="trailing" secondItem="cMS-JP-KSg" secondAttribute="trailing" constant="8" id="705-7m-mkG"/>
+                            <constraint firstItem="sbh-XO-3b1" firstAttribute="leading" secondItem="Ecg-Ct-gjs" secondAttribute="leading" constant="8" id="Dbh-kj-mVl"/>
+                            <constraint firstItem="emM-cJ-S4W" firstAttribute="top" secondItem="Kdm-jJ-CyK" secondAttribute="bottom" constant="8" id="EDy-kY-3EO"/>
+                            <constraint firstItem="Ecg-Ct-gjs" firstAttribute="trailing" secondItem="wr0-xc-vLk" secondAttribute="trailing" constant="8" id="MTt-E0-dW7"/>
+                            <constraint firstItem="wr0-xc-vLk" firstAttribute="leading" secondItem="Ecg-Ct-gjs" secondAttribute="leading" constant="8" id="Mv4-RP-Rii"/>
+                            <constraint firstItem="Ljo-aZ-s3S" firstAttribute="leading" secondItem="Ecg-Ct-gjs" secondAttribute="leading" id="NKL-ES-2fx"/>
+                            <constraint firstItem="Kdm-jJ-CyK" firstAttribute="leading" secondItem="Ecg-Ct-gjs" secondAttribute="leading" constant="8" id="Omd-44-alE"/>
+                            <constraint firstItem="l30-Ov-y2q" firstAttribute="top" secondItem="wJA-PZ-Vyd" secondAttribute="bottom" constant="8" id="PgJ-L9-3yY"/>
+                            <constraint firstItem="emM-cJ-S4W" firstAttribute="centerX" secondItem="QYL-i8-FSj" secondAttribute="centerX" id="S61-ex-M6f"/>
+                            <constraint firstItem="cMS-JP-KSg" firstAttribute="leading" secondItem="Ecg-Ct-gjs" secondAttribute="leading" constant="8" id="TOq-Ju-JRh"/>
+                            <constraint firstItem="wJA-PZ-Vyd" firstAttribute="top" secondItem="emM-cJ-S4W" secondAttribute="bottom" constant="16" id="UVp-8Y-gr7"/>
+                            <constraint firstItem="Ecg-Ct-gjs" firstAttribute="trailing" secondItem="sbh-XO-3b1" secondAttribute="trailing" constant="8" id="VYe-4x-GvD"/>
+                            <constraint firstItem="Ecg-Ct-gjs" firstAttribute="trailing" secondItem="Kdm-jJ-CyK" secondAttribute="trailing" constant="8" id="Zna-oO-Nph"/>
+                            <constraint firstItem="Ljo-aZ-s3S" firstAttribute="trailing" secondItem="Ecg-Ct-gjs" secondAttribute="trailing" id="fn9-RX-cah"/>
+                            <constraint firstItem="sbh-XO-3b1" firstAttribute="top" secondItem="cMS-JP-KSg" secondAttribute="bottom" constant="8" id="gt7-4r-zr9"/>
+                            <constraint firstItem="Ecg-Ct-gjs" firstAttribute="trailing" secondItem="wJA-PZ-Vyd" secondAttribute="trailing" constant="8" id="iKy-RN-A2V"/>
+                            <constraint firstItem="wr0-xc-vLk" firstAttribute="top" secondItem="sbh-XO-3b1" secondAttribute="bottom" constant="8" id="lWF-7o-Vj6"/>
+                            <constraint firstItem="wJA-PZ-Vyd" firstAttribute="leading" secondItem="Ecg-Ct-gjs" secondAttribute="leading" constant="8" id="ndp-Wx-jFo"/>
+                            <constraint firstItem="Kdm-jJ-CyK" firstAttribute="top" secondItem="wr0-xc-vLk" secondAttribute="bottom" constant="16" id="pgb-Fr-l7e"/>
+                            <constraint firstItem="Ljo-aZ-s3S" firstAttribute="top" secondItem="Ecg-Ct-gjs" secondAttribute="top" id="x5W-Fc-i0i"/>
+                            <constraint firstItem="l30-Ov-y2q" firstAttribute="centerX" secondItem="QYL-i8-FSj" secondAttribute="centerX" id="xdF-3B-bfZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OR7-yT-dkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440.57971014492756" y="-313.39285714285711"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J5r-wk-AlS">
             <objects>
@@ -205,6 +302,8 @@
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="folder" catalog="system" width="128" height="97"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

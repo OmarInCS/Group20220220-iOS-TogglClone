@@ -17,6 +17,21 @@ class EntriesVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func showBottomSheet(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "bottomSheet")
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .pageSheet
+        nav.isNavigationBarHidden = true
+        
+        nav.sheetPresentationController?.detents = [.medium()]
+        
+        self.present(nav, animated: true, completion: nil)
+    }
+    
+    
 
 }
 

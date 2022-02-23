@@ -43,6 +43,31 @@ class TimeEntry : Hashable, Equatable {
         
     }
     
+    static func aggregateDayDuration(_ entries: [TimeEntry]) -> [String: Double]{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM d, E"
+        formatter.locale = Locale(identifier: "en-US")
+        
+        return Dictionary(grouping: entries) { e in
+            return formatter.string(from: e.startTime)
+        }.mapValues { dayEntries in
+            return dayEntries.reduce(0) { total, dayEntry in
+                return total + dayEntry.duration
+            }
+        }
+    }
+    
+    static func aggregateProjectDuration(_ entries: [TimeEntry]) -> [String: Double] {
+        
+        return Dictionary(grouping: entries) { e in
+            return e.project?.projectName ?? "No Project"
+        }.mapValues { dayEntries in
+            return dayEntries.reduce(0) { total, dayEntry in
+                return total + dayEntry.duration
+            }
+        }
+    }
+    
     func startTimer(handleTick: (()->())?) {
         startTime = Date()
         

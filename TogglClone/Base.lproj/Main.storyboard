@@ -377,16 +377,99 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ReportsVC" customModule="TogglClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFN-Dc-p6x">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Reports" id="dyG-XB-5OL"/>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzc-b9-EUG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="1029"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5as-sC-vDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBW-dK-wUe">
+                                                <rect key="frame" x="8" y="16" width="398" height="64"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR 1000.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXm-dv-Xie">
+                                                <rect key="frame" x="8" y="96" width="398" height="64"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5p-YJ-bMU" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="8" y="176" width="398" height="250"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="rTk-JE-cVP"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBP-XT-vtz" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="8" y="442" width="398" height="250"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="fXj-Dm-Pg3"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="oBP-XT-vtz" firstAttribute="leading" secondItem="5as-sC-vDy" secondAttribute="leading" constant="8" id="2dn-Tz-km2"/>
+                                            <constraint firstAttribute="height" constant="1000" id="BDg-3a-rwM"/>
+                                            <constraint firstItem="jXm-dv-Xie" firstAttribute="top" secondItem="KBW-dK-wUe" secondAttribute="bottom" constant="16" id="Iwt-g2-Aru"/>
+                                            <constraint firstItem="F5p-YJ-bMU" firstAttribute="top" secondItem="jXm-dv-Xie" secondAttribute="bottom" constant="16" id="KGw-Qy-1o7"/>
+                                            <constraint firstAttribute="trailing" secondItem="KBW-dK-wUe" secondAttribute="trailing" constant="8" id="L9b-7g-5AO"/>
+                                            <constraint firstAttribute="trailing" secondItem="F5p-YJ-bMU" secondAttribute="trailing" constant="8" id="LPC-T9-0gz"/>
+                                            <constraint firstItem="F5p-YJ-bMU" firstAttribute="leading" secondItem="5as-sC-vDy" secondAttribute="leading" constant="8" id="Pnd-bz-Njg"/>
+                                            <constraint firstItem="jXm-dv-Xie" firstAttribute="leading" secondItem="5as-sC-vDy" secondAttribute="leading" constant="8" id="Vjo-ZC-I73"/>
+                                            <constraint firstItem="KBW-dK-wUe" firstAttribute="leading" secondItem="5as-sC-vDy" secondAttribute="leading" constant="8" id="em9-uW-hmP"/>
+                                            <constraint firstAttribute="trailing" secondItem="oBP-XT-vtz" secondAttribute="trailing" constant="8" id="hvd-kR-IlG"/>
+                                            <constraint firstItem="oBP-XT-vtz" firstAttribute="top" secondItem="F5p-YJ-bMU" secondAttribute="bottom" constant="16" id="idb-RL-C8g"/>
+                                            <constraint firstAttribute="trailing" secondItem="jXm-dv-Xie" secondAttribute="trailing" constant="8" id="rXW-YS-Nyt"/>
+                                            <constraint firstItem="KBW-dK-wUe" firstAttribute="top" secondItem="5as-sC-vDy" secondAttribute="top" constant="16" id="t9M-Ud-aoH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5as-sC-vDy" firstAttribute="trailing" secondItem="02w-OL-saM" secondAttribute="trailing" id="ILv-ix-qpx"/>
+                                    <constraint firstItem="5as-sC-vDy" firstAttribute="bottom" secondItem="02w-OL-saM" secondAttribute="bottom" id="Oyu-VB-JBy"/>
+                                    <constraint firstItem="5as-sC-vDy" firstAttribute="top" secondItem="02w-OL-saM" secondAttribute="top" id="usi-ex-mbb"/>
+                                    <constraint firstItem="5as-sC-vDy" firstAttribute="leading" secondItem="02w-OL-saM" secondAttribute="leading" id="wQd-kZ-xrI"/>
+                                    <constraint firstItem="5as-sC-vDy" firstAttribute="width" secondItem="27s-kV-aJi" secondAttribute="width" id="xKh-p7-Om3"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="02w-OL-saM"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="27s-kV-aJi"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kzc-b9-EUG" secondAttribute="trailing" id="6NL-Pf-jNT"/>
+                            <constraint firstItem="jFN-Dc-p6x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VtW-fE-3Ge"/>
+                            <constraint firstItem="Kzc-b9-EUG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eFT-bu-52U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kzc-b9-EUG" secondAttribute="bottom" id="kib-YB-uIS"/>
+                            <constraint firstItem="jFN-Dc-p6x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qDm-C0-FEB"/>
+                            <constraint firstItem="Kzc-b9-EUG" firstAttribute="top" secondItem="jFN-Dc-p6x" secondAttribute="bottom" id="r4I-GO-24E"/>
+                            <constraint firstItem="jFN-Dc-p6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="riF-fi-pdQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="chart.bar" catalog="system" id="19d-nf-a1r"/>
+                    <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="barView" destination="F5p-YJ-bMU" id="JDJ-AF-Z6G"/>
+                        <outlet property="pieView" destination="oBP-XT-vtz" id="j6u-Nz-GDY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="376"/>
+            <point key="canvasLocation" x="546" y="491"/>
         </scene>
     </scenes>
     <resources>

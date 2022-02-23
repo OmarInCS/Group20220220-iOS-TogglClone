@@ -1,0 +1,6 @@
+framework module Pods_TogglClone {
+  umbrella header "Pods-TogglClone-umbrella.h"
+
+  export *
+  module * { export * }
+}

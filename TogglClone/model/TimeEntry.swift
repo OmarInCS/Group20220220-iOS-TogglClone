@@ -21,6 +21,28 @@ class TimeEntry : Hashable, Equatable {
     var entryCost: Double {
         return (project?.hourRate ?? 0) * duration / 60 / 60
     }
+    
+    init(startTime: Date = Date(), description: String = "No Description", endTime: Date? = nil, project: Project? = nil) {
+        
+        self.startTime = startTime
+        self.description = description
+        self.endTime = endTime
+        self.project = project
+        
+    }
+    
+    static func groupEntriesByStartDate(_ entries: [TimeEntry]) -> [String: [TimeEntry]] {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "y MM d, E"
+        formatter.locale = Locale(identifier: "en-US")
+        
+        return Dictionary(grouping: entries) { e in
+            return formatter.string(from: e.startTime)
+        }
+        
+    }
+    
 
    
     static var dummyEntries = [
@@ -35,14 +57,7 @@ class TimeEntry : Hashable, Equatable {
         
     ]
    
-    init(startTime: Date = Date(), description: String = "No Description", endTime: Date? = nil, project: Project? = nil) {
-        
-        self.startTime = startTime
-        self.description = description
-        self.endTime = endTime
-        self.project = project
-        
-    }
+    
     
    
     public func hash(into hasher: inout Hasher) {

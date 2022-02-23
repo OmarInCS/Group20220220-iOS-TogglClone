@@ -48,4 +48,40 @@ class TogglService {
         
     }
     
+    
+    static func getAllEntries() -> [TimeEntry] {
+        
+        var entries = [TimeEntry]()
+        
+        let url = URL(string: baseUrl + "/entries")!
+        
+        let lock = DispatchSemaphore(value: 0)
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            guard let data = data else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en-US")
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            decoder.dateDecodingStrategy = .formatted(formatter)
+            
+            entries = try! decoder.decode([TimeEntry].self, from: data)
+            lock.signal()
+            
+        }
+        
+        task.resume()
+        
+        lock.wait()
+        
+        return entries
+
+        
+    }
+    
 }

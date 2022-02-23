@@ -7,12 +7,17 @@
 
 import Foundation
 
-class TimeEntry : Hashable, Equatable {
+class TimeEntry : Hashable, Equatable, Codable {
     var startTime: Date
     var description: String
     var endTime: Date?
     var project: Project?
     private var timer: Timer?
+    
+    enum CodingKeys: String, CodingKey {
+        case startTime, description, endTime, project
+    }
+    
     
     var duration: TimeInterval {
         return startTime.distance(to: endTime ?? Date())
@@ -30,6 +35,16 @@ class TimeEntry : Hashable, Equatable {
         self.project = project
         
     }
+    
+    required init(from decoder: Decoder) throws {
+        var container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.startTime = try container.decode(Date.self, forKey: .startTime)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.endTime = try container.decode(Date.self, forKey: .endTime)
+        self.project = try container.decode(Project.self, forKey: .project)
+    }
+    
     
     static func groupEntriesByStartDate(_ entries: [TimeEntry]) -> [String: [TimeEntry]] {
         
@@ -85,16 +100,16 @@ class TimeEntry : Hashable, Equatable {
     
 
    
-    static var dummyEntries = [
-        TimeEntry(startTime: Date(), description: "Do Some Thing", endTime: Date(timeInterval: 60 * 60, since: Date()), project: Project.dummyProjects[0]),
-        TimeEntry(startTime: Date(timeInterval: -150 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -147 * 60 * 60, since: Date()), project: Project.dummyProjects[0]),
-        TimeEntry(startTime: Date(timeInterval: -150 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -145 * 60 * 60, since: Date()), project: Project.dummyProjects[1]),
-        TimeEntry(startTime: Date(), description: "Do Some Thing", endTime: Date(timeInterval: 150 * 60, since: Date()), project: Project.dummyProjects[2]),
-        TimeEntry(startTime: Date(timeInterval: -120 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -118 * 60 * 60, since: Date()), project: Project.dummyProjects[1]),
-        TimeEntry(startTime: Date(timeInterval: -108 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -105 * 60 * 60, since: Date()), project: Project.dummyProjects[0]),
-        TimeEntry(startTime: Date(timeInterval: -118 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -117 * 60 * 60, since: Date()), project: Project.dummyProjects[2]),
-        TimeEntry(startTime: Date(timeInterval: -45 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -43 * 60 * 60, since: Date()), project: Project.dummyProjects[1]),
-        
+    static var dummyEntries: [TimeEntry] = [
+//        TimeEntry(startTime: Date(), description: "Do Some Thing", endTime: Date(timeInterval: 60 * 60, since: Date()), project: Project.dummyProjects[0]),
+//        TimeEntry(startTime: Date(timeInterval: -150 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -147 * 60 * 60, since: Date()), project: Project.dummyProjects[0]),
+//        TimeEntry(startTime: Date(timeInterval: -150 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -145 * 60 * 60, since: Date()), project: Project.dummyProjects[1]),
+//        TimeEntry(startTime: Date(), description: "Do Some Thing", endTime: Date(timeInterval: 150 * 60, since: Date()), project: Project.dummyProjects[2]),
+//        TimeEntry(startTime: Date(timeInterval: -120 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -118 * 60 * 60, since: Date()), project: Project.dummyProjects[1]),
+//        TimeEntry(startTime: Date(timeInterval: -108 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -105 * 60 * 60, since: Date()), project: Project.dummyProjects[0]),
+//        TimeEntry(startTime: Date(timeInterval: -118 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -117 * 60 * 60, since: Date()), project: Project.dummyProjects[2]),
+//        TimeEntry(startTime: Date(timeInterval: -45 * 60 * 60, since: Date()), description: "Do Some Thing", endTime: Date(timeInterval: -43 * 60 * 60, since: Date()), project: Project.dummyProjects[1]),
+//        
     ]
    
     

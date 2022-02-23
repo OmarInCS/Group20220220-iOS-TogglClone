@@ -8,15 +8,15 @@
 import Foundation
 
 
-struct Project {
+struct Project: Codable {
     var projectName: String
     var clientName: String?
     var hourRate: Double = 0
 
-    static var dummyProjects = [
-        Project(projectName: "Toggl Clone", hourRate: 100),
-        Project(projectName: "Stock Market Analyzer", hourRate: 150),
-        Project(projectName: "Scratch Clone", hourRate: 150),
+    static var dummyProjects: [Project] = [
+        Project(projectName: "xxxToggl Clone", hourRate: 100),
+        Project(projectName: "xxxStock Market Analyzer", hourRate: 150),
+        Project(projectName: "xxxScratch Clone", hourRate: 150),
     ]
 
     

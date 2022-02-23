@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D4631AA466D8D6AC1016336 /* Pods_TogglClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B94499DF9FB2A920A26333 /* Pods_TogglClone.framework */; };
 		CE29A53227C61404001C3445 /* BottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29A53127C61404001C3445 /* BottomSheetVC.swift */; };
+		CE29A53527C6511B001C3445 /* TogglService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29A53427C6511B001C3445 /* TogglService.swift */; };
 		CEA732E227C39B45005D5215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732E127C39B45005D5215 /* AppDelegate.swift */; };
 		CEA732E427C39B45005D5215 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732E327C39B45005D5215 /* SceneDelegate.swift */; };
 		CEA732E627C39B45005D5215 /* ReportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA732E527C39B45005D5215 /* ReportsVC.swift */; };
@@ -27,6 +28,7 @@
 		92696908FEE5529E8F534398 /* Pods-TogglClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TogglClone.release.xcconfig"; path = "Target Support Files/Pods-TogglClone/Pods-TogglClone.release.xcconfig"; sourceTree = "<group>"; };
 		CA0135DFCD76C50DB1FA0D02 /* Pods-TogglClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TogglClone.debug.xcconfig"; path = "Target Support Files/Pods-TogglClone/Pods-TogglClone.debug.xcconfig"; sourceTree = "<group>"; };
 		CE29A53127C61404001C3445 /* BottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVC.swift; sourceTree = "<group>"; };
+		CE29A53427C6511B001C3445 /* TogglService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglService.swift; sourceTree = "<group>"; };
 		CEA732DE27C39B45005D5215 /* TogglClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TogglClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA732E127C39B45005D5215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA732E327C39B45005D5215 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE29A53327C650F5001C3445 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				CE29A53427C6511B001C3445 /* TogglService.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
 		CEA732D527C39B45005D5215 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		CEA732E027C39B45005D5215 /* TogglClone */ = {
 			isa = PBXGroup;
 			children = (
+				CE29A53327C650F5001C3445 /* services */,
 				CEA732F527C39B9A005D5215 /* model */,
 				CEA732E127C39B45005D5215 /* AppDelegate.swift */,
 				CEA732E327C39B45005D5215 /* SceneDelegate.swift */,
@@ -114,7 +125,6 @@
 				CA0135DFCD76C50DB1FA0D02 /* Pods-TogglClone.debug.xcconfig */,
 				92696908FEE5529E8F534398 /* Pods-TogglClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,6 +248,7 @@
 				CEA732E427C39B45005D5215 /* SceneDelegate.swift in Sources */,
 				CEA732F927C39BC7005D5215 /* Project.swift in Sources */,
 				CEA732FF27C3B460005D5215 /* EntryCell.swift in Sources */,
+				CE29A53527C6511B001C3445 /* TogglService.swift in Sources */,
 				CEA732F827C39BC7005D5215 /* TimeEntry.swift in Sources */,
 				CE29A53227C61404001C3445 /* BottomSheetVC.swift in Sources */,
 				CEA732FB27C3A572005D5215 /* EntriesVC.swift in Sources */,

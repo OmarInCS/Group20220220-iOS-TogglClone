@@ -23,6 +23,7 @@ class BottomSheetVC: UIViewController {
     var pvProjects = UIPickerView()
     var selectedProject: Project!
     var updateParent: (() -> ())!
+    var allProjects = TogglService.getAllProjects()
     
     
     override func viewDidLoad() {
@@ -91,17 +92,17 @@ extension BottomSheetVC: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Project.dummyProjects.count
+        return allProjects.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return Project.dummyProjects[row].projectName
+        return allProjects[row].projectName
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        selectedProject = Project.dummyProjects[row]
+        selectedProject = allProjects[row]
         tfProject.text = selectedProject.projectName
         tfProject.resignFirstResponder()
     }

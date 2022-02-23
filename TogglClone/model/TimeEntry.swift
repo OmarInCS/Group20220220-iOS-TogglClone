@@ -43,6 +43,21 @@ class TimeEntry : Hashable, Equatable {
         
     }
     
+    func startTimer(handleTick: (()->())?) {
+        startTime = Date()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+            
+            
+            handleTick?()
+        })
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        endTime = Date()
+    }
+    
 
    
     static var dummyEntries = [

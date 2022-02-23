@@ -9,18 +9,75 @@ import UIKit
 
 class EntriesVC: UIViewController {
     
+    @IBOutlet weak var tbEntries: UITableView!
+    
+    @IBOutlet weak var startView: UIStackView!
+    
+    @IBOutlet weak var stopView: UIStackView!
+    
+    @IBOutlet weak var lbTime: UILabel!
+    
+    @IBOutlet weak var lbDescription: UILabel!
+    
+    @IBOutlet weak var lbProject: UILabel!
+    
     var tableData = TimeEntry.groupEntriesByStartDate(TimeEntry.dummyEntries)
+    
+    var runningEntry: TimeEntry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        stopView.isHidden = true
+    }
+    
+    func refreshData() {
+        
+        self.tableData = TimeEntry.groupEntriesByStartDate(TimeEntry.dummyEntries)
+        self.tbEntries.reloadData()
     }
     
     
+    @IBAction func handleStartTimer(_ sender: Any) {
+        
+        startView.isHidden = true
+        stopView.isHidden = false
+        
+        runningEntry = TimeEntry()
+        runningEntry?.startTimer(handleTick: {
+            let formatter = DateComponentsFormatter()
+            formatter.calendar?.locale = Locale(identifier: "en-US")
+            formatter.allowedUnits = [.hour, .minute, .second]
+            formatter.zeroFormattingBehavior = .pad
+            
+            self.lbTime.text = formatter.string(from: self.runningEntry!.duration)
+        })
+        
+    }
+    
+    
+    @IBAction func handleStopTimer(_ sender: Any) {
+        
+        startView.isHidden = false
+        stopView.isHidden = true
+        
+        runningEntry?.stopTimer()
+        TimeEntry.dummyEntries.append(runningEntry!)
+        runningEntry = nil
+        lbTime.text = "00:00"
+        refreshData()
+        
+    }
+    
+    
+
+    
     @IBAction func showBottomSheet(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "bottomSheet")
+        let vc = storyboard.instantiateViewController(withIdentifier: "bottomSheet") as! BottomSheetVC
+        
+        vc.updateParent = refreshData
         
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .pageSheet

@@ -22,6 +22,7 @@ class BottomSheetVC: UIViewController {
     
     var pvProjects = UIPickerView()
     var selectedProject: Project!
+    var updateParent: (() -> ())!
     
     
     override func viewDidLoad() {
@@ -49,8 +50,24 @@ class BottomSheetVC: UIViewController {
         let newEntry = TimeEntry(startTime: dpStartTime.date, description: tfDescription.text!, endTime: dpEndTime.date, project: selectedProject)
         TimeEntry.dummyEntries.append(newEntry)
         self.dismiss(animated: true, completion: nil)
-
+        self.updateParent()
     }
+    
+    
+    @IBAction func updateDuration(_ sender: Any) {
+        
+        let start = dpStartTime.date
+        let end = dpEndTime.date
+        let duration = start.distance(to: end)
+        
+        let formatter = DateComponentsFormatter()
+        formatter.calendar?.locale = Locale(identifier: "en-US")
+        formatter.allowedUnits = [.hour, .minute]
+        
+        lbDuration.text = formatter.string(from: duration)
+        
+    }
+    
     
     
 

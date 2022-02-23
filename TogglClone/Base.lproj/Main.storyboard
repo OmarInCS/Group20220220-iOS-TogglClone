@@ -184,8 +184,16 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="Th8-Gp-1kC">
-                                        <barButtonItem key="leftBarButtonItem" image="trash" catalog="system" id="z90-Fl-Af1"/>
-                                        <barButtonItem key="rightBarButtonItem" title="create" id="Nta-x8-tnb"/>
+                                        <barButtonItem key="leftBarButtonItem" image="trash" catalog="system" id="z90-Fl-Af1">
+                                            <connections>
+                                                <action selector="closeBottomSheet:" destination="bpS-6k-cma" id="CpQ-IU-Amu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="create" id="Nta-x8-tnb">
+                                            <connections>
+                                                <action selector="addTimeEntry:" destination="bpS-6k-cma" id="KYP-Nw-qm2"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -257,6 +265,13 @@
                             <constraint firstItem="l30-Ov-y2q" firstAttribute="centerX" secondItem="QYL-i8-FSj" secondAttribute="centerX" id="xdF-3B-bfZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dpEndTime" destination="l30-Ov-y2q" id="Qu9-M5-bNh"/>
+                        <outlet property="dpStartTime" destination="emM-cJ-S4W" id="tg6-wf-XAf"/>
+                        <outlet property="lbDuration" destination="cMS-JP-KSg" id="Sgs-sg-pds"/>
+                        <outlet property="tfDescription" destination="sbh-XO-3b1" id="XJ0-r2-9AP"/>
+                        <outlet property="tfProject" destination="wr0-xc-vLk" id="Q74-hg-b1Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OR7-yT-dkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

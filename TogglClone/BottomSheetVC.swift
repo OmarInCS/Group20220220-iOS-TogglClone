@@ -23,7 +23,8 @@ class BottomSheetVC: UIViewController {
     var pvProjects = UIPickerView()
     var selectedProject: Project!
     var updateParent: (() -> ())!
-    var allProjects = TogglService.getAllProjects()
+//    var allProjects = TogglService.getAllProjects()
+    var allProjects = Project.fetchAllProjects()
     
     
     override func viewDidLoad() {
@@ -49,7 +50,8 @@ class BottomSheetVC: UIViewController {
         }
         
         let newEntry = TimeEntry(startTime: dpStartTime.date, description: tfDescription.text!, endTime: dpEndTime.date, project: selectedProject)
-        TimeEntry.dummyEntries.append(newEntry)
+//        TimeEntry.dummyEntries.append(newEntry)
+        newEntry.createTimeEntry()
         self.dismiss(animated: true, completion: nil)
         self.updateParent()
     }

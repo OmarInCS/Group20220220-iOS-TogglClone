@@ -21,7 +21,8 @@ class EntriesVC: UIViewController {
     
     @IBOutlet weak var lbProject: UILabel!
     
-    var tableData = TimeEntry.groupEntriesByStartDate(TogglService.getAllEntries())
+//    var tableData = TimeEntry.groupEntriesByStartDate(TogglService.getAllEntries())
+    var tableData = TimeEntry.groupEntriesByStartDate(TimeEntry.fetchAllTimeEntries())
     
     var runningEntry: TimeEntry?
     
@@ -34,7 +35,8 @@ class EntriesVC: UIViewController {
     
     func refreshData() {
         
-        self.tableData = TimeEntry.groupEntriesByStartDate(TogglService.getAllEntries())
+//        self.tableData = TimeEntry.groupEntriesByStartDate(TogglService.getAllEntries())
+        self.tableData = TimeEntry.groupEntriesByStartDate(TimeEntry.fetchAllTimeEntries())
         self.tbEntries.reloadData()
     }
     

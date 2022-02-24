@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 class TimeEntry : Hashable, Equatable, Codable {
     var startTime: Date
@@ -96,6 +98,49 @@ class TimeEntry : Hashable, Equatable, Codable {
     func stopTimer() {
         timer?.invalidate()
         endTime = Date()
+    }
+    
+    public func createTimeEntry() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let timeEntity = NSEntityDescription.entity(forEntityName: "TimeEntries", in: managedContext)!
+        
+        let timeEntry = NSManagedObject(entity: timeEntity, insertInto: managedContext)
+        
+        timeEntry.setValue(self.startTime, forKey: "start_time")
+        timeEntry.setValue(self.description, forKey: "details")
+        timeEntry.setValue(self.endTime, forKey: "end_time")
+//        timeEntry.setValue(self.startTime, forKey: "start_time")
+        
+        try! managedContext.save()
+    }
+    
+    public static func fetchAllTimeEntries() -> [TimeEntry] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        var entries = [TimeEntry]()
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TimeEntries")
+        
+        let result = try! managedContext.fetch(request)
+        
+        for row in result as! [NSManagedObject] {
+            
+            let entry = TimeEntry(
+                startTime: row.value(forKey: "start_time") as! Date,
+                description: row.value(forKey: "details") as! String,
+                endTime: row.value(forKey: "end_time") as! Date,
+                project: nil
+            )
+            
+            entries.append(entry)
+        }
+        
+        return entries
     }
     
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Projects" representedClassName="Projects" syncable="YES" codeGenerationType="class">
+        <attribute name="client_name" optional="YES" attributeType="String"/>
+        <attribute name="hour_rate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="project_name" optional="YES" attributeType="String"/>
+        <relationship name="time_entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimeEntries" inverseName="project" inverseEntity="TimeEntries"/>
+    </entity>
+    <entity name="TimeEntries" representedClassName="TimeEntries" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="end_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="start_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="time_entries" inverseEntity="Projects"/>
+    </entity>
+    <elements>
+        <element name="TimeEntries" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Projects" positionX="-54" positionY="18" width="128" height="89"/>
+    </elements>
+</model>

@@ -113,6 +113,10 @@ class TimeEntry : Hashable, Equatable, Codable {
         timeEntry.setValue(self.description, forKey: "details")
         timeEntry.setValue(self.endTime, forKey: "end_time")
 //        timeEntry.setValue(self.startTime, forKey: "start_time")
+        if self.project != nil {
+            let project = Project.getProjectByName(projectName: project!.projectName)
+            timeEntry.setValue(project, forKey: "project")
+        }
         
         try! managedContext.save()
     }
@@ -130,12 +134,23 @@ class TimeEntry : Hashable, Equatable, Codable {
         
         for row in result as! [NSManagedObject] {
             
+            
             let entry = TimeEntry(
                 startTime: row.value(forKey: "start_time") as! Date,
                 description: row.value(forKey: "details") as! String,
-                endTime: row.value(forKey: "end_time") as! Date,
+                endTime: row.value(forKey: "end_time") as? Date,
                 project: nil
             )
+            
+            let project = row.value(forKey: "project")
+            
+            if project != nil {
+                entry.project = Project(
+                    projectName: row.value(forKeyPath: "project.project_name") as! String,
+                    clientName: row.value(forKeyPath: "project.client_name") as? String,
+                    hourRate: row.value(forKeyPath: "project.hour_rate") as! Double
+                )
+            }
             
             entries.append(entry)
         }

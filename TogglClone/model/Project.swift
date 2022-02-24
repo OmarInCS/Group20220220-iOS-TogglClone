@@ -67,5 +67,18 @@ struct Project: Codable {
         return projects
     }
     
+    public static func getProjectByName(projectName: String) -> NSManagedObject {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Projects")
+        request.predicate = NSPredicate(format: "project_name == %@", projectName)
+        
+        let result = try! managedContext.fetch(request)
+        
+        return result.first as! NSManagedObject
+    }
     
 }
